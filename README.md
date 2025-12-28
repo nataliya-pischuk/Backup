@@ -41,7 +41,7 @@
 ### Резервирование БД
 pg_dump -U username -d database_name -F c -f backup.dump
 
-``` https://statuser.cloud/blog/kak-nastroit-avtomaticheskiy-bekap-postgresql
+https://statuser.cloud/blog/kak-nastroit-avtomaticheskiy-bekap-postgresql
 
 Здесь:
 
@@ -54,10 +54,10 @@ pg_dump -U username -d database_name -F c -f backup.dump
 
 pg_restore -U username -d database_name -c backup.dump
 
-``` https://www.postgresql.org/docs/current/app-pgrestore.html
+https://www.postgresql.org/docs/current/app-pgrestore.html
 2.1.* Возможно ли автоматизировать этот процесс? Если да, то как? Возможно! Путем создания баш-скрипта исполняемого по расписанию. Также можно настроить отправку писем об итоге хода выполнения дампа.
 
-``` https://habr.com/ru/articles/595641/
+https://habr.com/ru/articles/595641/
 
 ### Задание 3. MySQL
 3.1. С помощью официальной документации приведите пример команды инкрементного резервного копирования базы данных MySQL.
