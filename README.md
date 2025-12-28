@@ -71,10 +71,10 @@ https://habr.com/ru/articles/595641/
 Так как инкрементное резервное копирование использует полную копию как начальную точку, то сначала нужно сделать полную резервную копию. Далее инкрементное резервное копирование:
 
     mysqlbackup --defaults-file=/home/dbadmin/my.cnf \
-  --incremental --incremental-base=history:last_backup \
-  --backup-dir=/home/dbadmin/temp_dir \
-  --backup-image=incremental_image1.bi \
-   backup-to-image
+      --incremental --incremental-base=history:last_backup \
+      --backup-dir=/home/dbadmin/temp_dir \
+      --backup-image=incremental_image1.bi \
+       backup-to-image
 
 В данном примере используется опция --incremental-base=history:last_backup, которая извлекает LSN последней успешной полной или частичной резервной копии (не TTS) из mysql.backup_history таблицы и на этой основе выполняет инкрементную резервную копию.
 
