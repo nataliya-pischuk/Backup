@@ -41,7 +41,7 @@
 ### Резервирование БД
 pg_dump -U username -d database_name -F c -f backup.dump
 
-``` [3](https://statuser.cloud/blog/kak-nastroit-avtomaticheskiy-bekap-postgresql)
+``` https://statuser.cloud/blog/kak-nastroit-avtomaticheskiy-bekap-postgresql
 
 Здесь:
 
@@ -59,5 +59,22 @@ pg_restore -U username -d database_name -c backup.dump
 
 ``` https://habr.com/ru/articles/595641/
 
+### Задание 3. MySQL
+3.1. С помощью официальной документации приведите пример команды инкрементного резервного копирования базы данных MySQL.
 
+3.1.* В каких случаях использование реплики будет давать преимущество по сравнению с обычным резервным копированием?
 
+Приведите ответ в свободной форме.
+
+### Ответ
+Так как инкрементное резервное копирование использует полную копию как начальную точку, то сначала нужно сделать полную резервную копию. Далее инкрементное резервное копирование:
+
+mysqlbackup --defaults-file=/home/dbadmin/my.cnf \
+  --incremental --incremental-base=history:last_backup \
+  --backup-dir=/home/dbadmin/temp_dir \
+  --backup-image=incremental_image1.bi \
+   backup-to-image
+В данном примере используется опция --incremental-base=history:last_backup, которая извлекает LSN последней успешной полной или частичной резервной копии (не TTS) из mysql.backup_history таблицы и на этой основе выполняет инкрементную резервную копию.
+
+Адрес ссылки
+https://dev.mysql.com/doc/mysql-enterprise-backup/8.2/en/mysqlbackup.incremental.html#meb-incremental-considerations
