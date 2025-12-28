@@ -70,7 +70,7 @@ https://habr.com/ru/articles/595641/
 ### Ответ
 Так как инкрементное резервное копирование использует полную копию как начальную точку, то сначала нужно сделать полную резервную копию. Далее инкрементное резервное копирование:
 
-mysqlbackup --defaults-file=/home/dbadmin/my.cnf \
+    mysqlbackup --defaults-file=/home/dbadmin/my.cnf \
   --incremental --incremental-base=history:last_backup \
   --backup-dir=/home/dbadmin/temp_dir \
   --backup-image=incremental_image1.bi \
@@ -80,4 +80,4 @@ mysqlbackup --defaults-file=/home/dbadmin/my.cnf \
 
 Адрес ссылки
 
-``` https://dev.mysql.com/doc/mysql-enterprise-backup/8.2/en/mysqlbackup.incremental.html#meb-incremental-considerations
+ https://dev.mysql.com/doc/mysql-enterprise-backup/8.2/en/mysqlbackup.incremental.html#meb-incremental-considerations
