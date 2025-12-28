@@ -55,6 +55,7 @@ https://statuser.cloud/blog/kak-nastroit-avtomaticheskiy-bekap-postgresql
 pg_restore -U username -d database_name -c backup.dump
 
 https://www.postgresql.org/docs/current/app-pgrestore.html
+
 2.1.* Возможно ли автоматизировать этот процесс? Если да, то как? Возможно! Путем создания баш-скрипта исполняемого по расписанию. Также можно настроить отправку писем об итоге хода выполнения дампа.
 
 https://habr.com/ru/articles/595641/
@@ -74,7 +75,9 @@ mysqlbackup --defaults-file=/home/dbadmin/my.cnf \
   --backup-dir=/home/dbadmin/temp_dir \
   --backup-image=incremental_image1.bi \
    backup-to-image
+
 В данном примере используется опция --incremental-base=history:last_backup, которая извлекает LSN последней успешной полной или частичной резервной копии (не TTS) из mysql.backup_history таблицы и на этой основе выполняет инкрементную резервную копию.
 
 Адрес ссылки
-https://dev.mysql.com/doc/mysql-enterprise-backup/8.2/en/mysqlbackup.incremental.html#meb-incremental-considerations
+
+``` https://dev.mysql.com/doc/mysql-enterprise-backup/8.2/en/mysqlbackup.incremental.html#meb-incremental-considerations
